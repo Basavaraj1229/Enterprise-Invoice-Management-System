@@ -1,0 +1,166 @@
+/* Modernized app styles */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+:root{
+  --bg: #0f1724; /* deep navy */
+  --surface: #0b1220;
+  --card: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  --muted: #9aa6b2;
+  --accent: #6ee7b7; /* soft mint */
+  --accent-2: #60a5fa; /* blue */
+}
+
+html, body {
+  height: 100%;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  background: linear-gradient(180deg, #0b1220 0%, #081018 100%);
+  color: #e6eef6;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* App container */
+.App {
+  min-height: 100vh;
+}
+
+.app-header{
+  background: linear-gradient(90deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01));
+  border-bottom: 1px solid rgba(255,255,255,0.03);
+}
+.brand-badge{
+  width:48px; height:48px; display:flex; align-items:center; justify-content:center;
+  background: linear-gradient(135deg,var(--accent),var(--accent-2));
+  border-radius:12px; color:#071036; font-weight:700; box-shadow:0 8px 24px rgba(16,24,40,0.6);
+}
+.app-title{font-size:1.125rem; margin:0; color:#fff}
+.app-subtitle{color:var(--muted)}
+
+/* Card and form styles */
+.card{
+  border: none; background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); color: #e6eef6; box-shadow: 0 14px 40px rgba(2,6,23,0.7); border-radius:12px; padding:1rem;
+}
+.card .form-control{
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: #e6eef6;
+  padding: .6rem .75rem;
+  border-radius: .5rem;
+}
+.card .form-control:focus{box-shadow:0 8px 30px rgba(96,165,250,0.06);border-color:rgba(96,165,250,0.28)}
+
+/* Ensure placeholders are visible on dark background */
+.card .form-control::placeholder,
+.card .form-control::-ms-input-placeholder,
+.card .form-control:-ms-input-placeholder {
+  color: rgba(230,238,246,0.72);
+}
+
+/* Make select and textarea text visible */
+.card select.form-control, .card textarea.form-control {
+  color: #e6eef6;
+}
+
+/* Input badge tweak */
+.input-group-text{background:rgba(255,255,255,0.03); border-radius:.5rem; color:#e6eef6}
+
+/* Global form control enhancements: ensure all inputs/selects/textareas are readable */
+input.form-control, textarea.form-control, select.form-control, .form-control {
+  color: #e6eef6 !important;
+  background: rgba(255,255,255,0.02) !important;
+  border: 1px solid rgba(255,255,255,0.08) !important;
+}
+
+/* Force placeholder visibility everywhere */
+.form-control::placeholder, .form-control::-webkit-input-placeholder, .form-control:-ms-input-placeholder,
+.form-control::-moz-placeholder, .form-control:-moz-placeholder {
+  color: rgba(230,238,246,0.95) !important;
+  opacity: 1 !important;
+}
+
+/* Highly specific rules for inputs inside the main card (overrides any bootstrap or component styles)
+   Ensure text and placeholder are visible and inputs have clear separator */
+.card input.form-control, .card textarea.form-control, .card select.form-control {
+  color: #e6eef6 !important;
+  background: rgba(255,255,255,0.03) !important;
+  border: 1px solid rgba(255,255,255,0.12) !important;
+  opacity: 1 !important;
+}
+.card input.form-control::placeholder, .card textarea.form-control::placeholder, .card select.form-control::placeholder {
+  color: rgba(230,238,246,0.92) !important;
+  opacity: 1 !important;
+}
+
+/* Specific: make inputs inside the invoice items table use dark text and placeholders
+   so they are visible on the white table surface. This targets only inputs inside
+   the table area so other inputs keep the dark-theme styling. */
+.card .table input.form-control,
+.card .table textarea.form-control,
+.card .table select.form-control {
+  color: #0b1220 !important; /* dark text */
+  background: #ffffff !important; /* white input background */
+  border: 1px solid rgba(0,0,0,0.08) !important;
+}
+.card .table input.form-control::placeholder,
+.card .table textarea.form-control::placeholder,
+.card .table select.form-control::placeholder {
+  color: #0b1220 !important; /* dark placeholder */
+  opacity: 1 !important;
+}
+
+/* Make input-group text badges readable */
+.input-group .input-group-text { color: #e6eef6 !important; background: rgba(255,255,255,0.03) !important; border: 1px solid rgba(255,255,255,0.06) !important }
+
+/* Table text color */
+.table, .table td, .table th { color: #e6eef6 }
+
+.btn-primary{
+  background: linear-gradient(90deg,var(--accent-2),var(--accent));
+  border: none; color:#04102a; font-weight:600; padding:0.6rem 0.9rem; border-radius:10px;
+  box-shadow: 0 10px 30px rgba(96,165,250,0.08);
+}
+.btn-outline-primary{border-radius:10px}
+
+.table thead th{border-bottom:1px solid rgba(255,255,255,0.04); color:var(--muted)}
+.table td{vertical-align:middle}
+
+#invoiceCapture{background:transparent}
+
+/* Table surface: avoid stark white blocks */
+.card .table{
+  background: rgba(255,255,255,0.02);
+  border-radius:8px;
+  padding: .5rem 1rem;
+}
+.card .table thead th{ color: var(--muted); font-weight:700; text-transform:uppercase; letter-spacing:.04em}
+.card .table tbody tr{ border-bottom:1px dashed rgba(255,255,255,0.03)}
+.card .table tbody tr:hover{ background: rgba(255,255,255,0.01)}
+
+/* Make Add Item button more prominent */
+.btn-add-item{ padding: .75rem 1.25rem; font-weight:700; border-radius:12px; box-shadow:0 18px 40px rgba(96,165,250,0.06); transition: transform .18s ease, box-shadow .18s ease}
+.btn-add-item:hover{ transform: translateY(-3px); box-shadow:0 24px 50px rgba(96,165,250,0.12)}
+
+/* Improve spacing inside the form */
+.card .mb-5{ margin-bottom:2rem }
+
+/* Slightly larger input text for readability */
+.form-control{ font-size: .96rem }
+
+/* Improve invoice number input visibility */
+.app-header .form-control{ background: rgba(255,255,255,0.02); border:1px solid rgba(255,255,255,0.06); color:#e6eef6 }
+
+/* Ensure the page uses Inter for a modern UI */
+body { font-family: 'Inter', system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; }
+
+/* Input badge for currency */
+.input-group-text{background:rgba(255,255,255,0.02); border:none; color:var(--muted)}
+
+/* Sidebar sticky card */
+.sticky-top{position:sticky; top:96px}
+
+/* Small responsive tweaks */
+@media(min-width:1200px){
+  .card{border-radius:16px}
+}
+
+/* Light helpers */
+.text-muted{color:var(--muted)!important}
+
