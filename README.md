@@ -49,6 +49,6 @@ Badges will appear above once workflows have run.
 
 ## License & Author
 
-Original project by John Uberbacher – https://johnuberbacher.com
+ 
 
 This repository maintained by Basavaraj Kokane.
